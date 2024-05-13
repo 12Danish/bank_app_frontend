@@ -8,8 +8,7 @@ const Home = () => {
     <div className='home-body-wrapper'>
         <div className='option-tag  bg-indigo-500 hover:bg-indigo-400'>
             <div className='tag-icon'><AccountBalanceIcon sx={{ width: 200, height: 200 }}/></div>
-            <div className='tag-small-text'>Balance:</div>
-            <div className='tag-big-text'>200000</div>
+            <div className='tag-small-text'>Current Balance</div>
         </div>
         <div className='option-tag  bg-violet-400 hover:bg-violet-300'>
         <div className='tag-icon'><CompareArrowsIcon sx={{ width: 200, height: 200 }}/></div>

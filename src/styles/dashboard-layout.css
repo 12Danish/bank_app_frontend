@@ -1,14 +1,13 @@
-.page-wrapper{
-    @apply grid grid-cols-12 gap-1
+.page-wrapper {
+  @apply grid grid-cols-12 gap-1 max-h-screen overflow-hidden;
 }
-.side-panel-wrapper{
-    @apply col-span-2 
+.side-panel-wrapper {
+  @apply col-span-2;
 }
-.remaining-screen-wrapper{
-    @apply col-span-10  grid grid-rows-12
+.remaining-screen-wrapper {
+  @apply col-span-10  grid grid-rows-12;
 }
 
-.dash-layout-body-wrapper{
-        @apply row-span-11 w-full h-full
-
+.dash-layout-body-wrapper {
+  @apply row-span-11 w-full h-full;
 }

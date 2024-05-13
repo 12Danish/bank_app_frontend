@@ -4,6 +4,7 @@ import TopBar from "@/components/TopBar";
 import '../styles/dashboard-layout.css'
 import Home from "@/components/Home";
 import TransferMoney from "@/components/TransferMoney";
+import TransactionHistory from "@/components/TransactionHistory/TransactionHistory";
 const Dashboard = () => {
   return (
     <div className="page-wrapper">
@@ -13,7 +14,7 @@ const Dashboard = () => {
     <div className="remaining-screen-wrapper">
       <TopBar />
       <div className="dash-layout-body-wrapper">
-    <Home />
+    <TransactionHistory/>
       </div>
     </div>
   </div>

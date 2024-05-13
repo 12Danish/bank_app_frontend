@@ -2,6 +2,7 @@ import PaymentsIcon from "@mui/icons-material/Payments";
 import HistoryIcon from "@mui/icons-material/History";
 import "../styles/side-panel.css";
 import Person2Icon from "@mui/icons-material/Person2";
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 import WidgetsIcon from "@mui/icons-material/Widgets";
 const SidePanel = () => {
   return (
@@ -28,6 +29,13 @@ const SidePanel = () => {
           <HistoryIcon />
         </div>
         <div className="option-text-wrapper"> Transaction History</div>
+      </div>
+      {/* Option 4 */}
+      <div className="side-panel-option">
+        <div className="icon-wrapper">
+          <CreditCardIcon />
+        </div>
+        <div className="option-text-wrapper"> Loans</div>
       </div>
       {/* Last Row */}
       <div className="end-row">
