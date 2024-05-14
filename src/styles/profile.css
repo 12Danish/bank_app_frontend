@@ -3,5 +3,5 @@
   }
 
   .card {
-    @apply   min-h-96 min-w-72
+    @apply min-h-96 min-w-72
 }
