@@ -13,7 +13,7 @@ const Profile = () => {
     <div className='profile-body-wrapper'>
     <Card className="card">
   <CardHeader>
-    <CardTitle className=" text-purple-500">CustomerDetails </CardTitle>
+    <CardTitle >CustomerDetails </CardTitle>
   </CardHeader>
   <CardContent>
     <p>Name</p>

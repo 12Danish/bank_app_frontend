@@ -30,13 +30,13 @@ const Loans = () => {
   return (
     <div className="loans-body-wrapper">
         <Card className="due-loan-card">
-        <CardTitle className="text-purple-600 font-bold mb-3 text-center ">
+        <CardTitle className=" font-bold mb-3 text-center ">
         Amount Payable : 250 RS
         </CardTitle>
         </Card>
       <Card className="loan-card">
         <CardHeader>
-          <CardTitle className="text-purple-600 font-bold mb-3">
+          <CardTitle className=" font-bold mb-3">
             Request A Loan
           </CardTitle>{" "}
           <CardDescription>* Terms and Conditions Apply</CardDescription>
@@ -62,7 +62,7 @@ const Loans = () => {
 
 
       <Card className='prev-loan-card'>
-      <CardTitle className="text-purple-600 font-bold mb-3 text-center">
+      <CardTitle className=" font-bold mb-3 text-center">
             Previous loans
           </CardTitle>
 

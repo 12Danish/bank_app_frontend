@@ -14,5 +14,5 @@
 }
 
 .header {
-  @apply text-purple-500 font-bold;
+  @apply font-bold;
 }

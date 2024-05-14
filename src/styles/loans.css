@@ -3,7 +3,7 @@
   }
   
   .loan-card {
-    @apply bg-gray-800 min-h-28;
+    @apply min-h-28;
     grid-row-start: 4;
     grid-row-end: span 8;
     grid-column-start: 9;

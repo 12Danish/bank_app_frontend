@@ -1,45 +1,79 @@
+import { NavLink } from "react-router-dom";
+import "../styles/dashboard-layout.css";
+import { Button } from "@/components/ui/button";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-  import { Input } from "@/components/ui/input"
-  import { Label } from "@/components/ui/label"
-  import { Button } from "@/components/ui/button"
-  import '../styles/dashboard-layout.css'
-import { NavLink } from "react-router-dom"
-  const  Login =() => {
-    return (
-        <div className="login-body-wrapper">      
-            <Card className="w-full max-w-sm">
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select";
+  
+
+export const Login = () => {
+  return (
+    <div className="center-body-wrapper">
+      {" "}
+      <Card className="mx-auto max-w-sm">
         <CardHeader>
           <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account.
+            Enter your email below to login to your account
           </CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" required />
+        <CardContent>
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <div className="flex items-center">
+                <Label htmlFor="password">Password</Label>
+              </div>
+              <Input id="password" type="password" required />
+            </div>
+            <div className="grid gap-2">
+          <Label htmlFor="role">Role</Label>
+            <Select>
+          <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Customer" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="Customr">Customer</SelectItem>
+              <SelectItem value="Employee">Employee</SelectItem>
+              </SelectContent>
+          </Select>
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required />
+           
+            <Button type="submit" className="w-full">
+              Login
+            </Button>
+          </div>
+          <div className="mt-4 text-center text-sm">
+            Don&apos;t have an account?{" "}
+            <NavLink to="/signup" className="underline">Sign up</NavLink>
           </div>
         </CardContent>
-        <CardFooter>
-        <NavLink to='/dashboard'>
-          <Button className="w-full">Sign in</Button>
-          </NavLink>
-        </CardFooter>
       </Card>
-      </div>
+    </div>
+  );
+};
 
-    )
-  }
-  
-  export default Login;
+export default Login;

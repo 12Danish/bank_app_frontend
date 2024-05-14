@@ -7,6 +7,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Card } from './ui/card';
   import { NavLink,Outlet } from 'react-router-dom';
 const Home = () => {
   return (
@@ -14,25 +15,25 @@ const Home = () => {
       <div className='relative'>
         <HoverCard>
           <HoverCardTrigger>
-            <div className='option-tag bg-purple-500 hover:bg-purple-400'>
+            <Card className='option-tag hover:bg-stone-500'>
               <div className='tag-icon'><AccountBalanceIcon sx={{ width: 200, height: 200 }}/></div>
               <div className='tag-small-text'>Current Balance</div>
-            </div>
+            </Card>
           </HoverCardTrigger>
           <HoverCardContent className="italic">Balance: 5000</HoverCardContent>
         </HoverCard>
       </div>
       <NavLink to='/dashboard/transfer-money'>
-      <div className='option-tag bg-violet-400 hover:bg-violet-300'>
+      <Card className='option-tag hover:bg-stone-500'>
         <div className='tag-icon'><CompareArrowsIcon sx={{ width: 200, height: 200 }}/></div>
         <div className='tag-small-text'>Transfer Money</div>
-      </div>
+      </Card>
       </NavLink>
       <NavLink to='/dashboard/profile'>
-      <div className='option-tag bg-pink-400 hover:bg-pink-300'>
+      <Card className='option-tag hover:bg-stone-500'>
         <div className='tag-icon'><Person4Icon sx={{ width: 200, height: 200 }}/></div>
         <div className='tag-small-text'>Profile</div>
-      </div>
+      </Card>
       </NavLink>
       <Outlet />
     </div>
