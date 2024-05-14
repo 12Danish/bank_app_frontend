@@ -55,12 +55,14 @@ const SidePanel = () => {
       </div>
       </NavLink>
       {/* Last Row */}
-      <div className="end-row">
+      <NavLink to='/dashboard/profile' className="side-panel-link">
+      <div className="inner-option">
         <div className="icon-wrapper">
           <Person2Icon />
         </div>
         <div className="option-text-wrapper"> Profile</div>
       </div>
+      </NavLink>
       <Outlet />
     </div>
   );

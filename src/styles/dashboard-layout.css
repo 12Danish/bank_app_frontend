@@ -12,3 +12,6 @@
   @apply row-span-11 w-full h-full;
 }
 
+.login-body-wrapper {
+    @apply flex items-center justify-center h-screen w-screen;
+  }
