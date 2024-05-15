@@ -29,7 +29,7 @@ export const Login = () => {
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setEmail(value);
-    updateButtonState(value, password,role);
+    updateButtonState(value, password, role);
   };
 
   // Function to handle changes in password input
@@ -41,16 +41,18 @@ export const Login = () => {
   const handleRoleChange = (value: string) => {
     console.log(value);
     setRole(value);
-    console.log(`role + ${role}`)
+    console.log(`role + ${role}`);
     updateButtonState(email, password, value);
   };
 
   // Function to update button disabled state
-  const updateButtonState = (emailValue: string, passwordValue: string, roleValue:string) => {
+  const updateButtonState = (
+    emailValue: string,
+    passwordValue: string,
+    roleValue: string
+  ) => {
     setIsButtonDisabled(!(emailValue && passwordValue && roleValue));
   };
-
-
 
   // Function to handle form submission (login)
   const handleLogin = () => {
@@ -97,7 +99,7 @@ export const Login = () => {
               <Label htmlFor="role">Role</Label>
               <Select value={role} onValueChange={handleRoleChange}>
                 <SelectTrigger className="w-[180px]">
-                  <SelectValue  />
+                  <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="Customer">Customer</SelectItem>

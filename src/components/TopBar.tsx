@@ -7,7 +7,6 @@ const TopBar = () => {
     <div className='top-bar-wrapper'>
       <NavLink to='/' className="flex items-center gap-1">
         <LogoutIcon />
-        Logout
       </NavLink>
     </div>
   );
