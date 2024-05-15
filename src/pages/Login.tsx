@@ -1,5 +1,3 @@
-import { NavLink } from "react-router-dom";
-import "../styles/dashboard-layout.css";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,8 +7,18 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import Cookies from "js-cookie";
+import "../styles/dashboard-layout.css";
 
+import { login } from "@/ApiService/login";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import {
   Select,
   SelectContent,
@@ -18,46 +26,46 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
+import { notification } from "@/props/notification_props";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { NavLink, useNavigate } from "react-router-dom"; // Import useNavigate here
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { z } from "zod";
+import "../styles/dashboard-layout.css";
+
+const formSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+  role: z.enum(["Customer", "Employee"]),
+});
+
+type FormFields = z.infer<typeof formSchema>;
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-  const [role, setRole] = useState("");
-  // Function to handle changes in email input
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setEmail(value);
-    updateButtonState(value, password, role);
-  };
+  const navigate = useNavigate(); // Move useNavigate here
+  const form = useForm<FormFields>({
+    resolver: zodResolver(formSchema),
+  });
 
-  // Function to handle changes in password input
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setPassword(value);
-    updateButtonState(email, value, role);
-  };
-  const handleRoleChange = (value: string) => {
-    console.log(value);
-    setRole(value);
-    console.log(`role + ${role}`);
-    updateButtonState(email, password, value);
-  };
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    console.log(data);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await login(data);
 
-  // Function to update button disabled state
-  const updateButtonState = (
-    emailValue: string,
-    passwordValue: string,
-    roleValue: string
-  ) => {
-    setIsButtonDisabled(!(emailValue && passwordValue && roleValue));
-  };
-
-  // Function to handle form submission (login)
-  const handleLogin = () => {
-    // Perform login logic here
-    console.log("Logging in...");
+      if (res) {
+        handleCookies(res);
+        navigate("/dashboard");
+      } else {
+        toast.error("Invalid Credentials", { ...notification });
+      }
+    } catch (error) {
+      toast.error("Invalid Credentials", {
+        ...notification,
+      });
+    }
   };
 
   return (
@@ -71,61 +79,100 @@ export const Login = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                value={email}
-                onChange={handleEmailChange}
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid gap-4">
+                <div className="grid gap-2">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="example@gmail.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                          <Input
+                            type="password"
+                            placeholder="Password"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />{" "}
+                </div>
+                <div className="grid gap-2">
+                  <FormField
+                    control={form.control}
+                    name="role"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Role</FormLabel>
+                        <Select onValueChange={field.onChange}>
+                          <FormControl>
+                            <SelectTrigger className="w-[180px]">
+                              <SelectValue />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Customer">Customer</SelectItem>
+                            <SelectItem value="Employee">Employee</SelectItem>
+                          </SelectContent>
+                        </Select>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />{" "}
+                </div>
+                <Button
+                  disabled={form.formState.isSubmitting}
+                  type="submit"
+                  className="min-w-full"
+                >
+                  {form.formState.isSubmitting ? "Loading..." : "Login"}
+                </Button>
               </div>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="role">Role</Label>
-              <Select value={role} onValueChange={handleRoleChange}>
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Customer">Customer</SelectItem>
-                  <SelectItem value="Employee">Employee</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <Button
-              type="submit"
-              className="w-full"
-              onClick={handleLogin}
-              disabled={isButtonDisabled}
-            >
-              Login
-            </Button>
-          </div>
-          <div className="mt-4 text-center text-sm">
-            Dont have an account?{" "}
-            <NavLink to="/signup" className="underline">
-              Sign up
-            </NavLink>
-          </div>
+            </form>
+          </Form>
         </CardContent>
+        <div className="mt-4 text-center text-sm">
+          Dont have an account?{" "}
+          <NavLink to="/signup" className="underline">
+            Sign up
+          </NavLink>
+        </div>
       </Card>
+      <ToastContainer />
     </div>
   );
+};
+
+const handleCookies = (res: number) => {
+  if (Cookies.get("account_id")) {
+    // Remove the existing cookie
+    Cookies.remove("account_id");
+  }
+
+  // Set the cookie with the new account_id value
+  Cookies.set("account_id", res);
+
+  // Redirect or perform other actions
 };
 
 export default Login;

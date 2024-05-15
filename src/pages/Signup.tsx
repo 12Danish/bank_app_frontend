@@ -61,9 +61,7 @@ const Signup = () => {
       }
     } catch (error) {
       toast.error("Operation failed", {
-        position: "top-center",
-
-        className: "error-toast",
+        ...notification,
       });
     }
   };

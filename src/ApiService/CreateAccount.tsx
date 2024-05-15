@@ -1,14 +1,7 @@
 import axios from "axios";
 
-interface createAccountprops {
-  firstName: string;
-  lastName: string;
-  dob: string;
-  phoneNum: string;
-  email: string;
-  password: string;
-}
 
+import { createAccountprops } from "@/props/ApiServiceProps/authentication_props";
 /*
 Make sure your endpoint returns json in the following format
 
