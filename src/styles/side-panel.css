@@ -1,5 +1,5 @@
 .side-panel-wrapper {
-  @apply h-screen  bg-gray-800  grid grid-rows-12;
+  @apply h-screen  bg-zinc-800  grid grid-rows-12;
 }
 
 .side-panel-title {
@@ -7,7 +7,7 @@
 }
 
 .side-panel-link {
-    @apply  flex flex-row border-b border-gray-700 bg-gray-700 hover:bg-gray-600 cursor-pointer;
+    @apply  flex flex-row border-b border-zinc-700 bg-zinc-700 hover:bg-zinc-600 cursor-pointer;
   }
   
   .inner-option{
@@ -27,7 +27,7 @@
 }
 
 .end-row {
-  @apply row-span-1 flex flex-row border-b border-gray-700 bg-gray-700 hover:bg-gray-600 cursor-pointer;/* Example background color */
+  @apply row-span-1 flex flex-row border-b border-zinc-700 bg-zinc-700 hover:bg-zinc-600 cursor-pointer;/* Example background color */
   grid-row-start: 12;
   grid-row-end: span 1;
 }
