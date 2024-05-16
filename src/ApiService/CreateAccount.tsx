@@ -1,15 +1,14 @@
-import axios from "axios";
-
-
-import { createAccountprops } from "@/props/ApiServiceProps/authentication_props";
+import { createAccountProps } from "@/props/ApiServiceProps/authenticationProps";
 /*
 Make sure your endpoint returns json in the following format
 
 {
     created : boolean(true/false)
 }
-*/ 
-export const createAccount = async (data: createAccountprops): Promise<boolean> => {
+*/
+export const createAccount = async (
+  data: createAccountProps
+): Promise<boolean> => {
   try {
     let url = "YOUR END POINT HERE";
     // const res = await axios.post(url, data); Uncomment this once you have url in place

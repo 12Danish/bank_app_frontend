@@ -1,4 +1,4 @@
-export interface createAccountprops {
+export interface createAccountProps {
   firstName: string;
   lastName: string;
   dob: string;

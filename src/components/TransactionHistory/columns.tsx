@@ -14,10 +14,7 @@ export const columns: ColumnDef<Transactions>[] = [
     accessorKey: "account_id",
     header: () => <span className="header">Account Number</span>,
   },
-  {
-    accessorKey: "name",
-    header: () => <span className="header">Name</span>,
-  },
+
   {
     accessorKey: "credit",
     header: () => <span className="header">Credit</span>,

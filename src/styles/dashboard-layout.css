@@ -15,3 +15,7 @@
 .center-body-wrapper {
     @apply flex items-center justify-center h-screen w-screen;
   }
+
+  .access-denied-container {
+   @apply flex min-w-96
+}
