@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import { Transactions } from "@/props/ApiServiceProps/transactionHistory";
 import { useEffect, useState } from "react";
-import "../../styles/transaction-history.css";
+import "../styles/transaction-history.css";
 
 const TransactionHistory = () => {
   const [data, setData] = useState<Transactions[]>([]);

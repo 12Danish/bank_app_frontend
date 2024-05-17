@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { loanLogsProps } from "@/props/ApiServiceProps/loanHistoryProps";
 import { fetchSpecificLoanDetails } from "@/ApiService/loanDetails";
+import { loanLogsProps } from "@/props/ApiServiceProps/loanProps";
+import { useEffect, useState } from "react";
 export const useSpecificLoanDetails = (loan_id: number) => {
   const [loanLogs, setLoanLogs] = useState<loanLogsProps[] | null>(null);
 

@@ -1,4 +1,4 @@
-import { fetchLoanRequest } from "@/ApiService/loanPayment";
+import { fetchLoanRequest } from "@/ApiService/loanRequest";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,13 +14,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { RequestLoanProps } from "@/props/ApiServiceProps/loanProps";
 import { notification } from "@/props/notification_props";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { RequestLoanProps } from "@/props/ApiServiceProps/loanRequestProps";
-  
-const RequestLoan = ( loanApproval : RequestLoanProps) => {
+
+const RequestLoan = (loanApproval: RequestLoanProps) => {
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [showError, setShowError] = useState(false);
   const [disabled, setDisabled] = useState(false);

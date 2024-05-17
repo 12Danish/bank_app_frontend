@@ -4,7 +4,7 @@ import TopBar from "@/components/TopBar";
 import '../styles/dashboard-layout.css'
 import Home from "@/components/Home";
 import TransferMoney from "@/components/TransferMoney";
-import TransactionHistory from "@/components/TransactionHistory/TransactionHistory";
+import TransactionHistory from "@/components/TransactionHistory";
 import Loans from "@/components/Loans/Loans";
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Profile from "@/components/Profile";

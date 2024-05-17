@@ -1,17 +1,24 @@
-import { useState, useEffect } from "react";
-import {  fetchLoanHistory,  fetchTotalLoanAmount,fetchSpecificLoanDetails } from "@/ApiService/loanDetails";
-import { loanHistoryProps } from "@/props/ApiServiceProps/loanHistoryProps";
+import {
+  fetchLoanHistory,
+  fetchTotalLoanAmount,
+} from "@/ApiService/loanDetails";
+import { loanHistoryProps } from "@/props/ApiServiceProps/loanProps";
+import { useEffect, useState } from "react";
 
 export const useLoanHistory = () => {
-  const [loanHistoryData, setLoanHistoryData] = useState<loanHistoryProps[] | null>(null);
-  const [totalLoanAmountData, setTotalLoanAmountData] = useState<number | null>(null);
+  const [loanHistoryData, setLoanHistoryData] = useState<
+    loanHistoryProps[] | null
+  >(null);
+  const [totalLoanAmountData, setTotalLoanAmountData] = useState<number | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchLoanData = async () => {
       try {
         const loanHistoryResponse = await fetchLoanHistory();
         const totalLoanAmountResponse = await fetchTotalLoanAmount();
-        
+
         setLoanHistoryData(loanHistoryResponse);
         setTotalLoanAmountData(totalLoanAmountResponse);
       } catch (error) {
@@ -20,7 +27,6 @@ export const useLoanHistory = () => {
     };
 
     fetchLoanData();
-  }, []); 
-  return {loanHistoryData, totalLoanAmountData}
-}
-
+  }, []);
+  return { loanHistoryData, totalLoanAmountData };
+};

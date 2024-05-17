@@ -29,3 +29,9 @@
     grid-column-start: 3;
     grid-column-end: 7;
   }
+
+  .loan-details-card{
+    overflow-y: scroll;
+    overflow-x: hidden; /* Use overflow-y instead of overflow-y-scroll */
+    max-height: calc(50%); /* Adjust the max-height as per your layout */
+  }

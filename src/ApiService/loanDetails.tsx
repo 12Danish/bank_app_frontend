@@ -14,6 +14,43 @@ export const fetchLoanHistory = async () => {
         repayable_amount: 5200,
         status: "unpaid",
       },
+      {
+        loan_id: 1,
+        date_of_issuance: "2023-05-01",
+        date_of_return: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        date_of_issuance: "2023-05-01",
+        date_of_return: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        date_of_issuance: "2023-05-01",
+        date_of_return: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        date_of_issuance: "2023-05-01",
+        date_of_return: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      
     ];
   } catch (error) {
     console.error("Error creating account:", error);
@@ -41,6 +78,54 @@ export const fetchSpecificLoanDetails = async (loan_id: number) => {
     // return res.data.id; Uncomment this once you have url in place
     // remove this once url is placed
     return [
+      {
+        loan_id: 1,
+        entry_date: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        entry_date: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        entry_date: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        entry_date: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        entry_date: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
+      {
+        loan_id: 1,
+        entry_date: "2023-11-01",
+        amount_taken: 5000,
+        fine: 0,
+        repayable_amount: 5200,
+        status: "unpaid",
+      },
       {
         loan_id: 1,
         entry_date: "2023-11-01",
