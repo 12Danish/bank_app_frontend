@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import Cookies from "js-cookie";
 import "../styles/dashboard-layout.css";
 
-import { login } from "@/ApiService/login";
+import { fetchLogin } from "@/ApiService/login";
 import {
   Form,
   FormControl,
@@ -53,7 +53,7 @@ export const Login = () => {
     console.log(data);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await login(data);
+      const res = await fetchLogin(data);
 
       if (res) {
         handleCookies(res);

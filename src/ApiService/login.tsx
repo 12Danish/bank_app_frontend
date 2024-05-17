@@ -1,5 +1,5 @@
 import { loginProps } from "@/props/ApiServiceProps/authenticationProps";
-export const login = async (data: loginProps): Promise<number | null> => {
+export const fetchLogin = async (data: loginProps): Promise<number | null> => {
   try {
     let url = "YOUR END POINT HERE";
     // const res = await axios.post(url, data); Uncomment this once you have url in place

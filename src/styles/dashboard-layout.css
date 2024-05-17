@@ -5,7 +5,7 @@
   @apply col-span-2;
 }
 .remaining-screen-wrapper {
-  @apply col-span-10  grid grid-rows-12;
+  @apply col-span-10  grid grid-rows-12 max-h-screen;
 }
 
 .dash-layout-body-wrapper {

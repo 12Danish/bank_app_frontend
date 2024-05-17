@@ -1,32 +1,32 @@
-import { useState, useEffect } from 'react';
-import {getAccountDetails }from '@/ApiService/getAccountDetails';
+import { fetchGetAccountDetails } from "@/ApiService/getAccountDetails";
+import { useEffect, useState } from "react";
 
 export const useTransferDetails = () => {
-  const [accountNumber, setAccountNumber] = useState('');
-  const [name, setName] = useState('');
-  const [accountBalance, setAccountBalance] = useState(0);
+  const [accountNumber, setAccountNumber] = useState<number | null>(null);
+  const [name, setName] = useState("");
+  const [accountBalance, setAccountBalance] = useState<number | null>(null);
   const [disableInputs, setDisableInputs] = useState(false);
   useEffect(() => {
     const fetchAccountDetails = async () => {
       try {
-        const data = await getAccountDetails();
-      
+        const data = await fetchGetAccountDetails();
+
         // Uncomment these when you have backend links in place
         // setAccountNumber(data.accountNumber);
         // setName(data.name);
         // setAccountBalance(data.balance);
-        setAccountNumber("12");
+        setAccountNumber(1);
         setName("Danish");
-         setAccountBalance(500);
+        setAccountBalance(5000);
         setDisableInputs(true); // Disable inputs after fetching data
       } catch (error) {
-        console.error('Error fetching account details:', error);
+        console.error("Error fetching account details:", error);
       }
     };
-  
+
     fetchAccountDetails();
   }, []);
-    return {
+  return {
     accountNumber,
     name,
     accountBalance,

@@ -6,7 +6,7 @@ Make sure your endpoint returns json in the following format
     created : boolean(true/false)
 }
 */
-export const createAccount = async (
+export const fetchCreateAccount = async (
   data: createAccountProps
 ): Promise<boolean> => {
   try {

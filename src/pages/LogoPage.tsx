@@ -15,7 +15,7 @@ const LogoPage = () => {
         </AspectRatio>
       </div>
         <div className="grid grid-rows-2 min-h-48 min-w-48 gap-6">
-        <div className="row-span-1 text-7xl font-bold">Loaner</div>
+        <div className="row-span-1 text-7xl font-bold">E-WALL</div>
             <div className="flex-row justify-evenly">
             <NavLink to="/login">
                 <Button>Proceed</Button>

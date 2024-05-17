@@ -1,4 +1,4 @@
-export const logout = async () => {
+export const fetchLogout = async () => {
   try {
     let url = "YOUR END POINT HERE";
     // const res = await axios.post(url, data); Uncomment this once you have url in place

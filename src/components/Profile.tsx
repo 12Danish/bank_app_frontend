@@ -1,15 +1,14 @@
+import { fetchGetUserDetails } from "@/ApiService/getUserInfo";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useState, useEffect } from "react";
-import "../styles/profile.css";
 import { userDataProps } from "@/props/ApiServiceProps/userDataProps";
-import { getUserDetails } from "@/ApiService/getUserInfo";
+import { useEffect, useState } from "react";
+import "../styles/profile.css";
 const Profile = () => {
   const [userData, setUserData] = useState<userDataProps>({
     name: "",
@@ -25,7 +24,7 @@ const Profile = () => {
   useEffect(() => {
     const getProfileDetails = async () => {
       try {
-        const data = await getUserDetails();
+        const data = await fetchGetUserDetails();
         setUserData(data);
       } catch (error) {
         console.error("Error fetching account details:", error);

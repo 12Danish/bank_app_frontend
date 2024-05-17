@@ -15,9 +15,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
-import { ToastContainer, toast } from "react-toastify";
 import {
   Select,
   SelectContent,
@@ -25,9 +23,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ToastContainer, toast } from "react-toastify";
 
-import { useNavigate } from "react-router-dom";
 import { notification } from "@/props/notification_props";
+import { useNavigate } from "react-router-dom";
 
 import { useTransferDetails } from "@/customHooks/useTransferDetails";
 import "../styles/transfer-money.css";
@@ -38,7 +37,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
 import "../styles/dashboard-layout.css";
 
-import { transfer } from "@/ApiService/transfer";
+import { fetchTransfer } from "@/ApiService/transfer";
 const formSchema = z.object({
   ban: z.string(),
   amount: z.string(),
@@ -60,20 +59,25 @@ const TransferMoney = () => {
     console.log(data);
     if (Number(data.amount) <= 0 || Number(data.ban) <= 0) {
       form.setError("amount", { message: "Amount must be a positive number" });
-      form.setError("ban", { message: "Beneficiary Account Number must be a positive number" });
+      form.setError("ban", {
+        message: "Beneficiary Account Number must be a positive number",
+      });
       return; // Stop form submission here
     }
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await transfer({
+      const res = await fetchTransfer({
         amount: Number(data.amount),
         to_account_id: Number(data.ban),
         description: data.td,
       });
       if (res) {
-        toast.success("Operation successful,amount has been transferred. Redirecting to home page", {
-          ...notification,
-        });
+        toast.success(
+          "Operation successful. Redirecting to home page",
+          {
+            ...notification,
+          }
+        );
         setTimeout(() => {
           navigate("/dashboard");
         }, 3000);
@@ -86,7 +90,7 @@ const TransferMoney = () => {
       });
     }
   };
-  
+
   return (
     <div className="tm-body-wrapper">
       <div className="single-column items-end mr-5">
@@ -125,7 +129,7 @@ const TransferMoney = () => {
             <CardDescription>Beneficiary AccountDetails</CardDescription>
           </CardHeader>
           <CardContent>
-            <Form {...form} >
+            <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
                   control={form.control}
@@ -136,7 +140,6 @@ const TransferMoney = () => {
                       <FormControl>
                         <Input type="number" {...field} />
                       </FormControl>
-
                     </FormItem>
                   )}
                 />

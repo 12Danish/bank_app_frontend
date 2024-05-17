@@ -1,4 +1,4 @@
-import { createAccount } from "@/ApiService/createAccount";
+import { fetchCreateAccount } from "@/ApiService/createAccount";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,6 +15,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { notification } from "@/props/notification_props";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -23,30 +31,22 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { z } from "zod";
 import "../styles/dashboard-layout.css";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    dob: z.string(),
-    cnic: z.string(),
-    addressType: z.enum(["Home", "Work", "Hostel"]),
-    street: z.string(),
-    country: z.string(),
-    city: z.string(),
-    state: z.string(),
-    postalCode: z.string(),
-    phoneNum: z.string(),
-    email: z.string().email(),
-    password: z.string(),
-  });
+  firstName: z.string(),
+  lastName: z.string(),
+  dob: z.string(),
+  cnic: z.string(),
+  addressType: z.enum(["Home", "Work", "Hostel"]),
+  street: z.string(),
+  country: z.string(),
+  city: z.string(),
+  state: z.string(),
+  postalCode: z.string(),
+  phoneNum: z.string(),
+  email: z.string().email(),
+  password: z.string(),
+});
 
 type FormFields = z.infer<typeof formSchema>;
 
@@ -59,7 +59,7 @@ const Signup = () => {
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      const res = await createAccount(data);
+      const res = await fetchCreateAccount(data);
 
       if (res) {
         toast.success("Operation successful, you are being redirected", {
