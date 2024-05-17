@@ -1,4 +1,4 @@
-import { Transactions } from '@/components/TransactionHistory/columns';
+import { Transactions } from "@/props/ApiServiceProps/transactionHistory";
 import axios from 'axios';
 
 export const transaction_history = async () : Promise<Transactions[]> => {

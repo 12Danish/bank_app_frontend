@@ -1,126 +1,88 @@
 {
-    "transaction_history": [
-      { "description" : "Jazzcash Karza from zarrar", 
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-15",
-        "credit": 200,
-        "debit": null,
-        "balance": 200
-      },
-      { "description" : " ufone load",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-16",
-        "credit": null,
-        "debit": 100,
-        "balance": 100
-      },
-      { "description" : "",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-17",
-        "credit": 150,
-        "debit": null,
-        "balance": 350
-      },
-      { "description" : "help",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-18",
-        "credit": null,
-        "debit": 50,
-        "balance": 50
-      },
-      { "description" : "Jazzcash Karza from zarrar", 
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-15",
-        "credit": 200,
-        "debit": null,
-        "balance": 200
-      },
-      { "description" : " ufone load",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-16",
-        "credit": null,
-        "debit": 100,
-        "balance": 100
-      },
-      { "description" : "",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-17",
-        "credit": 150,
-        "debit": null,
-        "balance": 350
-      },
-      { "description" : "help",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-18",
-        "credit": null,
-        "debit": 50,
-        "balance": 50
-      },
-      { "description" : "Jazzcash Karza from zarrar", 
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-15",
-        "credit": 200,
-        "debit": null,
-        "balance": 200
-      },
-      { "description" : " ufone load",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-16",
-        "credit": null,
-        "debit": 100,
-        "balance": 100
-      },
-      { "description" : "",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-17",
-        "credit": 150,
-        "debit": null,
-        "balance": 350
-      },
-      { "description" : "help",
-        "account_id": "AC001",
-        "name": "Ali",
-        "date": "2024-05-18",
-        "credit": null,
-        "debit": 50,
-        "balance": 50
-      },
-      { "description" : " ufone load",
-      "account_id": "AC001",
-      "name": "Ali",
+  "transaction_history": [
+    {
+      "account_id": 1,
+      "transaction_type": 1,
+      "balance": 200,
+      "date": "2024-05-15",
+      "amount": 200
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 2,
+      "balance": 100,
       "date": "2024-05-16",
-      "credit": null,
-      "debit": 100,
-      "balance": 100
+      "amount": 100
     },
-    { "description" : "",
-      "account_id": "AC001",
-      "name": "Ali",
+    {
+      "account_id": 1,
+      "transaction_type": 3,
+      "balance": 350,
       "date": "2024-05-17",
-      "credit": 150,
-      "debit": null,
-      "balance": 350
+      "amount": 150
     },
-    { "description" : "help",
-      "account_id": "AC001",
-      "name": "Ali",
-      "date": "2024-05-18",
-      "credit": null,
-      "debit": 50,
-      "balance": 50
+    {
+      "account_id": 1,
+      "transaction_type": 1,
+      "balance": 200,
+      "date": "2024-05-15",
+      "amount": 200
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 2,
+      "balance": 100,
+      "date": "2024-05-16",
+      "amount": 100
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 3,
+      "balance": 350,
+      "date": "2024-05-17",
+      "amount": 150
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 1,
+      "balance": 200,
+      "date": "2024-05-15",
+      "amount": 200
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 2,
+      "balance": 100,
+      "date": "2024-05-16",
+      "amount": 100
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 3,
+      "balance": 350,
+      "date": "2024-05-17",
+      "amount": 150
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 1,
+      "balance": 200,
+      "date": "2024-05-15",
+      "amount": 200
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 2,
+      "balance": 100,
+      "date": "2024-05-16",
+      "amount": 100
+    },
+    {
+      "account_id": 1,
+      "transaction_type": 3,
+      "balance": 350,
+      "date": "2024-05-17",
+      "amount": 150
     }
-      
-    ]
-  }
-  
+  ]
+}
