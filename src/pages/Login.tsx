@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+} from "../components/ui/card";
+import { Input } from "../components/ui/input";
 import Cookies from "js-cookie";
 import "../styles/dashboard-layout.css";
 

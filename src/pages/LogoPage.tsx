@@ -1,6 +1,6 @@
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { AspectRatio } from "../components/ui/aspect-ratio";
 import "../styles/dashboard-layout.css";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { NavLink } from "react-router-dom";
 const LogoPage = () => {
   return (
