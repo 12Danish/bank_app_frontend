@@ -22,3 +22,13 @@ export interface LoanDetailsProps {
 export interface RequestLoanProps {
   loanApproval: () => void; // Define the prop type
 }
+
+export interface loanHistoryComponentProps {
+  loanApproval: () => void;
+  loanHistory: loanHistoryProps[] | null;
+}
+
+export interface loanPaymentProps {
+  loanApproval: () => void;
+  loan_id: number;
+}

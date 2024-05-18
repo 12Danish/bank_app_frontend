@@ -11,6 +11,7 @@ import {
 import { Transactions } from "@/props/ApiServiceProps/transactionHistory";
 import { useEffect, useState } from "react";
 import "../styles/transaction-history.css";
+import { Card } from "./ui/card";
 
 const TransactionHistory = () => {
   const [data, setData] = useState<Transactions[]>([]);
@@ -32,7 +33,7 @@ const TransactionHistory = () => {
   return (
     <div className="th-body-wrapper">
       <div className="title-wrapper">Transaction History</div>
-      <div className="th-data-wrapper">
+      <Card className="th-data-wrapper">
         <Table>
           <TableCaption>A List of your recent transactions</TableCaption>
           <TableHeader>
@@ -64,7 +65,7 @@ const TransactionHistory = () => {
             ))}
           </TableBody>
         </Table>
-      </div>
+      </Card>
     </div>
   );
 };

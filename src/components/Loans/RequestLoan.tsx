@@ -20,7 +20,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const RequestLoan = (loanApproval: RequestLoanProps) => {
+
+const RequestLoan = ({loanApproval}: RequestLoanProps) => {
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [showError, setShowError] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -41,12 +42,13 @@ const RequestLoan = (loanApproval: RequestLoanProps) => {
           console.log(res);
           loanApproval();
         } else {
+            console.log(res)
           toast.error("Disapproved. Please clear existing loans first.", {
             ...notification,
           });
         }
       } catch (error) {
-        toast.error("Invalid Credentials", {
+        toast.error("Disapproved. Please clear existing loans first.", {
           ...notification,
         });
       } finally {

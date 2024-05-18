@@ -48,7 +48,7 @@ export const fetchLoanHistory = async () => {
         amount_taken: 5000,
         fine: 0,
         repayable_amount: 5200,
-        status: "unpaid",
+        status: "paid",
       },
       
     ];

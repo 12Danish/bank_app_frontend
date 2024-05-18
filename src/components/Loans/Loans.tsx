@@ -10,24 +10,17 @@ const Loans = () => {
   const { loanHistoryData, totalLoanAmountData } = useLoanHistory();
   const [loanApproved, setLoanApproved] = useState(false);
 
-  useEffect(() => {
-    if (loanApproved) {
-      const timer = setTimeout(() => {
-        setLoanApproved(false);
-      }, 3000); // Reset after 3 seconds
-
-      return () => clearTimeout(timer);
-    }
-  }, [loanApproved]);
-
   const handleLoanApproval = () => {
-    setLoanApproved(true);
+    setLoanApproved(!loanApproved);
   };
   return (
     <div className="loans-body-wrapper">
       <LoanAmount totalLoanAmount={totalLoanAmountData} />
-      <RequestLoan loanApproval = {handleLoanApproval}/>
-      <LoanHistory loanHistory={loanHistoryData} />
+      <RequestLoan loanApproval={handleLoanApproval} />
+      <LoanHistory
+        loanHistory={loanHistoryData}
+        loanApproval={handleLoanApproval}
+      />
       <ToastContainer />
     </div>
   );

@@ -1,5 +1,6 @@
 import { Card, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog,DialogTrigger } from "@radix-ui/react-dialog";
+import { AlertDialog, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import {
   Table,
   TableBody,
@@ -8,17 +9,16 @@ import {
   TableHead,
   TableRow,
 } from "@/components/ui/table";
-import { loanHistoryProps } from "@/props/ApiServiceProps/loanProps";
+
 import "../../styles/loans.css";
 import { Button } from "../ui/button";
 import LoanDetails from "./LoanDetails";
 import LoanPayment from "./LoanPayment";
-
+import { loanHistoryComponentProps } from "@/props/ApiServiceProps/loanProps";
 const LoanHistory = ({
   loanHistory,
-}: {
-  loanHistory: loanHistoryProps[] | null;
-}) => {
+  loanApproval,
+}: loanHistoryComponentProps) => {
   return (
     <>
       <Card className="prev-loan-card">
@@ -61,12 +61,16 @@ const LoanHistory = ({
                       </Dialog>
                     </TableCell>
                     <TableCell>
-                      <Dialog>
-                        <DialogTrigger>
-                          <Button>Pay Loan</Button>
-                        </DialogTrigger>
-                        <LoanPayment loan_id={loan.loan_id} />
-                      </Dialog>
+                      {loan.status.toLowerCase() == "unpaid" ? (
+                        <AlertDialog>
+                          <AlertDialogTrigger>
+                            <Button>Pay Loan</Button>
+                          </AlertDialogTrigger>
+                          <LoanPayment loan_id={loan.loan_id} loanApproval={loanApproval} />
+                        </AlertDialog>
+                      ) : (
+                        "Paid"
+                      )}
                     </TableCell>
                   </TableRow>
                 ))}
